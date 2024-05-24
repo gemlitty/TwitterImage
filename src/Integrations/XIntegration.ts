@@ -1,5 +1,4 @@
-import { MentionedTestData } from "../TestData/MentionedTestData";
-import { TweetV2, TweetV2PostTweetResult, TwitterApi } from "twitter-api-v2";
+import { TweetV2, TwitterApi } from "twitter-api-v2";
 
 /**
  * COULD NOT TEST THIS CLASS, BECAUSE NO ACCESS TO THE BASIC X API
@@ -19,11 +18,6 @@ export class XIntegration {
    * @return Mentioned posts
    */
   async getMentionedPosts(sinceId: string = ""): Promise<TweetV2[]> {
-    // @REMOVE THE IF STATEMENT WHEN NOT TESTING. LINES 18-37 SHOULD BE REMOVED
-    if (process.env.APP_ENV === "local") {
-      return MentionedTestData.data();
-    }
-
     return await this.client.v2
       .userMentionTimeline(this.id, {
         expansions: "referenced_tweets.id%2Cauthor_id",
