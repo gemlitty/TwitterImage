@@ -1,0 +1,43 @@
+{
+  "name": "twitterimage",
+  "version": "0.1.0",
+  "description": "Respond to posts mentioning the X handle, with a generated image",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon",
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "keywords": [
+    "X",
+    "Twitter",
+    "Image",
+    "Generation",
+    "Mentioned",
+    "Posts"
+  ],
+  "author": "gemlitty@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "redis": "^4.6.14",
+    "twitter-api-v2": "^1.17.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^20.12.12",
+    "@types/node-cron": "^3.0.11",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts",
+    "exec": "ts-node src/app.ts"
+  }
+}

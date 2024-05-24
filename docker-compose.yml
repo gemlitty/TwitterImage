@@ -1,0 +1,14 @@
+services:
+  twitterimage-redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    command: redis-server --save 20 1 --loglevel warning --requirepass password
+  twitterimage:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "8000:8000"
